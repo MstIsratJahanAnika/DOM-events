@@ -24,9 +24,21 @@
      <br>
      <button id="btn-make-blue">make Blue</button>
      <button id="btn-make-purple">make Purple</button>
+    <br>
+     <button id="btn-make-green">btn-make-green</button>
+     <button id="btn-make-cyan">btn-make-cyan</button>
      <script>
-        // console.log("Script connected!");
-       
+        // option 4: addEventListener
+        // document.getElementById().addEventListener('event type', handler->can be a function);
+        document.getElementById('btn-make-green').addEventListener('click', function makeGreen(){
+            // console.log(7777);
+            document.body.style.backgroundColor = 'green';
+        });
+
+        document.getElementById('btn-make-cyan')
+            .addEventListener('click', function (){
+                document.body.style.backgroundColor = 'cyan';
+            })
 
      </script>
     <!-- angta lagano -->
