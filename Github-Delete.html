@@ -9,7 +9,7 @@
 
 <body>
 
-    <h1>My Secret Info</h1>
+    <h1 id="secret-info">My Secret Info</h1>
     <input type="text" placeholder="write-delete" name="" id="input-delete">
     <button id="btn-delete" disabled>Delete</button>
 
@@ -23,6 +23,8 @@
             if (textinput === 'delete') {
                 console.log('delete typed');
                 deleteBtn.removeAttribute('disabled');
+                const secretTag = document.getElementById('secret-info');
+                secretTag.style.display = 'none';
             }
             else {
                 console.log('something else typed');

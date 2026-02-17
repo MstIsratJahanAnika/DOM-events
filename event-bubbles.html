@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubble</title>
+    <style>
+        body{
+            border: 2px solid red;
+            margin: 2px;
+        }
+
+        section{
+            border: 2px solid green;
+            margin:  2px;
+        }
+        ol{
+            border: 2px solid purple;
+            margin:  2px;
+        }
+        li{
+            border: 2px solid blue;
+            margin:  2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Explore Event Bubble</h1>
+    <section id="list-container">
+        <h3>List of things</h3>
+
+        <!-- ul>li#item-$*6>lorem2 -->
+        <ol id="listItem">
+            <li id="item-1">Lorem, ipsum.</li>
+            <li id="item-2">Sed, harum.</li>
+            <li id="item-3">Cumque, minus?</li>
+            <li id="item-4">Reprehenderit, dolorem!</li>
+            <li id="item-5">Recusandae, nostrum!</li>
+            <li id="item-6">Natus, aperiam!</li>
+        </ul>
+    </section>
+
+    <script>
+        // li item-2 click handler
+        document.getElementById('item-2')
+            .addEventListener('click', function(event){
+                console.log('item 2 first clicked');
+                event.stopPropagation(); //stop bubbling further
+            })
+            // ei level er bahire jay na
+        document.getElementById('item-2')
+            .addEventListener('click', function(event){
+                console.log('item 2 second clicked');
+                event.stopImmediatePropagation();
+            })
+        document.getElementById('item-2')
+            .addEventListener('click', function(event){
+                console.log('item 2 third clicked');
+            })
+
+        // ol item click handler
+        document.getElementById('listItem')
+            .addEventListener('click', function(){
+                console.log('ol item clicked');
+            })
+
+        // section item click handler
+        document.getElementById('list-container')
+            .addEventListener('click', function(){
+                console.log('section clicked');
+            })
+    </script>
+</body>
+</html>
